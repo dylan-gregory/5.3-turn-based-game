@@ -24,3 +24,16 @@ img {
 h1{
   text-align: center;
 }
+
+.health-bar{
+  background-color: red;
+  height: 4px;
+  width: 100%;
+}
+
+#bar{
+  text-align: center;
+  width: 1%;
+  height: 100%;
+  background-color: green;
+}

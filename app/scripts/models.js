@@ -12,14 +12,17 @@ function Character(config){
 
     this.name = config.name;
     this.move = config.move;
+// they will all have 100 health points by default
+    this.health = 100;
 
 
   $.extend(this, config);
 
   this.attack = function(){
     var hit = _.random(10, 30);
-    return Character.health -= hit; // might have to change Character to something else - enemy health maybe?
-  };
+
+    return !this.health -= hit; // might have to change Character to something else - enemy health maybe?
+  }
 
 }
 
@@ -52,17 +55,20 @@ Enemy.prototype = new Character();
 // Listing out our cool good guys
   var luffy = new Hero({
     name: "Luffy",
-    move: "Rubber Rubber Bazooka"
+    move: "Rubber Rubber Bazooka",
+    image: "../app/images/luffy.png"
   });
 
   var robin = new Hero({
     name: "Robin",
-    move: "Seis Fleur: Twist"
+    move: "Seis Fleur: Twist",
+    image: "../app/images/robin.jpg"
   });
 
   var zoro = new Hero({
     name: "Zoro",
-    move: "Oni Cutter"
+    move: "Oni Cutter",
+    image: "../app/images/zoro.png"
   });
 
 
@@ -71,17 +77,20 @@ Enemy.prototype = new Character();
 // Listing out our not so cool bad guys
   var doFlamingo = new Enemy({
     name: "Doflamingo",
-    move: "Roundhouse Kick"
+    move: "Roundhouse Kick",
+    image: "../app/images/doflamingo.png"
   });
 
   var smoker = new Enemy({
     name: "Smoker",
     move: "Smoke Bomb",
+    image: "../app/images/smoker.jpg"
   });
 
   var akainu = new Enemy({
     name: "Admiral Akainu",
-    move: "Volcano Meteor"
+    move: "Volcano Meteor",
+    images: "../app/images/akainu.png"
   });
 
 var heroes = [luffy, robin, zoro];
@@ -97,6 +106,7 @@ module.exports = {
 }
 //
 // console.log(enemies[0].name);
+
 
 // It would be neat to display this.name + " attacked with" + this.move
 // hit for x amount of damage
