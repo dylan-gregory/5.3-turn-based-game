@@ -21,8 +21,8 @@ function Character(config){
   this.attack = function(){
     var hit = _.random(10, 30);
 
-    return !this.health -= hit; // might have to change Character to something else - enemy health maybe?
-  }
+    // return !this.health -= hit; // might have to change Character to something else - enemy health maybe?
+  };
 
 }
 
@@ -72,8 +72,6 @@ Enemy.prototype = new Character();
   });
 
 
-  console.log(luffy);
-
 // Listing out our not so cool bad guys
   var doFlamingo = new Enemy({
     name: "Doflamingo",
@@ -97,13 +95,12 @@ var heroes = [luffy, robin, zoro];
 
 var enemies = [doFlamingo, smoker, akainu];
 
-console.log(enemies);
 
 
 module.exports = {
   "heroes": heroes,
   "enemies": enemies
-}
+};
 //
 // console.log(enemies[0].name);
 

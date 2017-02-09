@@ -3,6 +3,8 @@ var _ = require('underscore');
 var models = require('./models.js');
 require('bootstrap-sass');
 
+var charSelect = require('../templates/characters.hbs')
+
 
 
 
@@ -16,13 +18,17 @@ require('bootstrap-sass');
   //   move = data.move
   //   picture = data.picture
   // });
+
+  $('.modal-body').append(charSelect(models.heroes));
+
   $('.ready-play-btn').on('click', function(event, data){
     event.preventDefault();
 
     var enemyToFight = models.enemies.indexOf(_.random(0, 2));
 
-    $('.enemy-img').append(enemyTemplate(enemyToFight));
+/// we hard coded data right here to begin with, just to have a frame of reference
+    $('.enemy-img').append(charSelect(models.enemies[0]));
     // or whatever we want to call the hero spot
-    $('.hero-img').append(heroTemplate(data));
+    $('.hero-img').append(charSelect(models.heroes[1]));
 
   });
