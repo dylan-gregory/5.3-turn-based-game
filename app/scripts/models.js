@@ -22,9 +22,11 @@ function Character(config){
     var hit = _.random(10, 30);
 
     // return !this.health -= hit; // might have to change Character to something else - enemy health maybe?
+
   };
 
-}
+  }
+
 
 // Good guys constructor
 
