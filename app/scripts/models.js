@@ -135,7 +135,7 @@ Enemy.prototype = new Character();
   var akainu = new Enemy({
     name: "Admiral Akainu",
     move: "Volcano Meteor",
-    images: "../app/images/akainu.png",
+    image: "../app/images/akainu.png",
     thumbnail: "../app/images/akainu-tn.png"
   });
 

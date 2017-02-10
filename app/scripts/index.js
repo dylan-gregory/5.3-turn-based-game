@@ -6,7 +6,7 @@ require('bootstrap-sass');
 var charSelect = require('../templates/characters.hbs');
 var charTNSelect = require('../templates/char-thumbnail.hbs')
 
-
+var currentHero;
 
 
   // This will reference the character that you choose - it will load up that characters data into the event that will fire when you click the play button
@@ -20,10 +20,19 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
   //   picture = data.picture
   // });
 
-  models.heroes.forEach(function(hero){
-  $('#char-modal').append(charTNSelect(hero));
+  models.heroes.forEach(function(hero, index){
+    hero.index = index;
+    $('#char-modal').append(charTNSelect(hero));
+    console.log($('.js-hero'));
   });
 
+// add function to select hero
+console.log($('.js-hero'));
+$('.js-hero').on('click', function(e){
+  var heroIndex = $(this).data("hero");
+  currentHero = models.heroes[heroIndex];
+console.log(currentHero);
+})
   // $('#char-modal').append.(charSelect(models.heroes));
   // console.log($('#char-modal').append(charSelect(models.heroes)))
 
@@ -50,7 +59,7 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
     $('.health-bar-hero').removeClass('display-hide');
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
-    $('.modal').modal('hide')
+    $('.modal').modal('hide');
     // $('.modal').addClass('close');
     // $('.modal').css('display', 'none');
     // $('body').removeClass('modal-open');
@@ -59,7 +68,7 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
     // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
     // console.log(enemyToFight);
 
-    var currentHero = models.heroes[0];
+
 
 /// we hard coded data right here to begin with, just to have a frame of reference
     $('.enemy').append(charSelect(enemyToFight));
@@ -85,7 +94,7 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
     event.preventDefault();
 
 
-    models.heroes[0].heroAttack();
+    currentHero.heroAttack();
     // enemyToFight.enemyHealth -= models.hit;
 
 
