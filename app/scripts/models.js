@@ -3,7 +3,7 @@
   **/
 var $ = require('jquery');
 var _ = require('underscore');
-require('./index.js')
+var index = require('./index.js')
 
 
 // Setting up a basic character constructor
@@ -29,6 +29,11 @@ function Character(config){
 
 
 // Good guys constructor
+var enemyHealth;
+var heroHealth;
+var hit;
+var enemyToFight = index.enemyToFight;
+var enemyHealth = index.enemyHealth;
 
 function Hero(config){
   config = config || {};
@@ -39,8 +44,10 @@ function Hero(config){
     Character.call(this, config);
 
     this.heroAttack = function(){
-      var hit = _.random(10, 30);
+      hit = _.random(10, 30);
+      console.log(enemyToFight.enemyHealth);
       return enemyHealth -= hit;
+
     };
 
 }

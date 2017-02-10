@@ -29,27 +29,59 @@ var charSelect = require('../templates/characters.hbs')
   //
   // };
 
+  // var currentEnemy = models.enemies[_.random(0, 2)];
+  // var currentHero = models.heroes[1];
+  // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
+  var enemyToFight = models.enemies[(_.random(0, 2))];
+  console.log(enemyToFight);
+
   $('.ready-play-btn').on('click', function(event, data){
     event.preventDefault();
     $('.fight-button').removeClass('display-hide');
+    $('.health-bar-enemy').removeClass('display-hide');
+    $('.health-bar-hero').removeClass('display-hide');
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
-    var enemyToFight = models.enemies.indexOf(_.random(0, 2));
+
+    // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
+    // console.log(enemyToFight);
+
+    var currentHero = models.heroes[1];
 
 /// we hard coded data right here to begin with, just to have a frame of reference
-    $('.enemy').append(charSelect(models.enemies[_.random(0, 2)]));
+    $('.enemy').append(charSelect(enemyToFight));
     // or whatever we want to call the hero spot
-    $('.hero').append(charSelect(models.heroes[1]));
+    $('.hero').append(charSelect(currentHero));
 
 
-    $('.fight-button').on('click', function(event, data){
-      event.preventDefault();
-      
-
-      models.heroes[1].heroAttack();
-
-      setTimeout(models.data.enemyAttack, 5000);
-
-    })
+    // $('.fight-button').on('click', function(event, data){
+    //   event.preventDefault();
+    //
+    //
+    //   models.heroes[1].heroAttack();
+    //
+    //   setTimeout(enemyToFight.enemyAttack, 5000);
+    //
+    //
+    // })
 
   });
+  console.log(enemyToFight.enemyHealth);
+
+  $('.fight-button').on('click', function(event, data){
+    event.preventDefault();
+
+
+    models.heroes[1].heroAttack();
+
+    // console.log(models.heroes[1].heroAttack());
+
+    setTimeout(enemyToFight.enemyAttack, 5000);
+
+
+  })
+
+  module.exports = {
+    "enemyToFight": enemyToFight
+
+  };
