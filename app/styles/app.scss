@@ -29,13 +29,13 @@ img {
 
 .health-bar-hero{
   background-color: red;
-  height: 4px;
+  height: 8px;
   width: 100%;
 }
 
 .health-bar-enemy{
   background-color: red;
-  height: 4px;
+  height: 8px;
   width: 100%;
   z-index: -10;
 }
@@ -43,15 +43,19 @@ img {
 #bar{
   text-align: center;
   width: 100%;
-  height: 4px;
+  height: 8px;
   background-color: green;
 
 }
 
 .char-name{
-  font-size: 18px;
-  color: red;
+  font-size: 30px;
+  color: white;
   font-weight: bold;
+  background-color: #212385;
+  border-radius: 5px;
+  text-align: center;
+  width: 70%;
 }
 
 .modal-body{
@@ -90,10 +94,14 @@ img {
   display: inline-block;
 }
 
-.char-image img{
-  height: 500px;
+.hero{
+  vertical-align: middle;
 }
 
 .fight-button{
-
+font-size: 30px;
+font-weight: bold;
+text-align: center;
+position: absolute;
+left: 45%;
 }

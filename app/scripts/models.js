@@ -109,7 +109,7 @@ Enemy.prototype = new Character();
     name: "Smoker",
     move: "Smoke Bomb",
     image: "../app/images/smoker.jpg",
-    thumbnail: "../app/images/smoker-tn.png"
+    thumbnail: "../app/images/smoker-tn.jpg"
   });
 
   var akainu = new Enemy({

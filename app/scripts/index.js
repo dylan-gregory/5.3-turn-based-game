@@ -3,7 +3,8 @@ var _ = require('underscore');
 var models = require('./models.js');
 require('bootstrap-sass');
 
-var charSelect = require('../templates/char-thumbnail.hbs')
+var charSelect = require('../templates/characters.hbs');
+var charTNSelect = require('../templates/char-thumbnail.hbs')
 
 
 
@@ -20,7 +21,7 @@ var charSelect = require('../templates/char-thumbnail.hbs')
   // });
 
   models.heroes.forEach(function(hero){
-  $('#char-modal').append(charSelect(hero));
+  $('#char-modal').append(charTNSelect(hero));
   });
 
   // $('#char-modal').append.(charSelect(models.heroes));
@@ -47,6 +48,7 @@ var charSelect = require('../templates/char-thumbnail.hbs')
     $('.health-bar-hero').removeClass('display-hide');
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
+    $('.modal').addClass('close');
 
     // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
     // console.log(enemyToFight);
