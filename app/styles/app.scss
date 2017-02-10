@@ -37,6 +37,7 @@ img {
   background-color: red;
   height: 4px;
   width: 100%;
+  z-index: -10;
 }
 
 #bar{
@@ -50,11 +51,16 @@ img {
 .char-name{
   font-size: 18px;
   color: red;
+  font-weight: bold;
 }
 
 .modal-body{
   height: 300px;
   font-size: 20px;
+}
+
+.modal-body .char-image img{
+  height: 200px;
 }
 
 .play-button{
@@ -75,9 +81,17 @@ img {
   margin: 20px;
 }
 
+#char-modal{
+  display: inline-block;
+  display: flex;
+}
+
 .char-image{
-  height: 300px;
-  width: 100%;
+  display: inline-block;
+}
+
+.char-image img{
+  height: 500px;
 }
 
 .fight-button{

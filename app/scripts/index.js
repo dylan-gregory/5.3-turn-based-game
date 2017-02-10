@@ -3,7 +3,7 @@ var _ = require('underscore');
 var models = require('./models.js');
 require('bootstrap-sass');
 
-var charSelect = require('../templates/characters.hbs')
+var charSelect = require('../templates/char-thumbnail.hbs')
 
 
 
@@ -19,7 +19,12 @@ var charSelect = require('../templates/characters.hbs')
   //   picture = data.picture
   // });
 
-  $('.modal-body').append(charSelect(models.heroes));
+  models.heroes.forEach(function(hero){
+  $('#char-modal').append(charSelect(hero));
+  });
+
+  // $('#char-modal').append.(charSelect(models.heroes));
+  // console.log($('#char-modal').append(charSelect(models.heroes)))
 
   // $('.play-button').on('click', function(){
   //   event.preventDefault();
