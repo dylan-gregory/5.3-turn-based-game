@@ -13,7 +13,7 @@ function Character(config){
     this.name = config.name;
     this.move = config.move;
 // they will all have 100 health points by default
-    this.health = 100;
+    // this.health = 100;
 
 
   $.extend(this, config);
@@ -34,7 +34,14 @@ function Hero(config){
   config = config || {};
   // this.name = config.name;
   // this.move = config.move;
+  this.heroHealth = 100;
+
     Character.call(this, config);
+
+    this.heroAttack = function(){
+      var hit = _.random(10, 30);
+      return enemyHealth -= hit;
+    };
 
 }
 
@@ -45,10 +52,16 @@ Hero.prototype = new Character();
 //Bad Guys constructor
 function Enemy(config){
   config = config || {};
+  this.enemyHealth = 100;
 
   Character.call(this, config);
   // this.name = config.name;
   // this.move = config.move;
+
+  this.enemyAttack = function(){
+    var hit = _.random(10, 30);
+    return heroHealth -= hit;
+  };
 }
 
 // Giving them inheritance of Character as well

@@ -21,14 +21,34 @@ var charSelect = require('../templates/characters.hbs')
 
   $('.modal-body').append(charSelect(models.heroes));
 
+  // $('.play-button').on('click', function(){
+  //   event.preventDefault();
+  //
+  //   $('.play-button').addClass('display-hide');
+  //   $('.game-title').addClass('display-hide');
+  //
+  // };
+
   $('.ready-play-btn').on('click', function(event, data){
     event.preventDefault();
-
+    $('.fight-button').removeClass('display-hide');
+    $('.game-title').addClass('display-hide');
+    $('.play-button').addClass('display-hide');
     var enemyToFight = models.enemies.indexOf(_.random(0, 2));
 
 /// we hard coded data right here to begin with, just to have a frame of reference
-    $('.enemy-img').append(charSelect(models.enemies[0]));
+    $('.enemy').append(charSelect(models.enemies[_.random(0, 2)]));
     // or whatever we want to call the hero spot
-    $('.hero-img').append(charSelect(models.heroes[1]));
+    $('.hero').append(charSelect(models.heroes[1]));
+
+
+    $('.fight-button').on('click', function(event, data){
+      event.preventDefault();
+
+      models.heroes.heroAttack();
+
+      setTimeout(models.enemies.enemyAttack, 5000);
+
+    })
 
   });
