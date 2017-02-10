@@ -87,7 +87,7 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
 
     // console.log(models.heroes[1].heroAttack());
 
-    setTimeout(enemyToFight.enemyAttack, 5000);
+    setTimeout(enemyToFight.enemyAttack, 3000);
 
 
   })

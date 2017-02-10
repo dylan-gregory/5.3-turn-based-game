@@ -79,7 +79,15 @@ function Enemy(config){
 
   this.enemyAttack = function(){
     var hit = _.random(10, 30);
-    return heroHealth -= hit;
+    console.log(hit);
+    heroHealth = heroHealth - hit;
+    console.log(heroHealth);
+    if (heroHealth <= 0) {
+      alert('you lose!');
+    }else {
+      return heroHealth;
+
+    }
   };
 }
 
