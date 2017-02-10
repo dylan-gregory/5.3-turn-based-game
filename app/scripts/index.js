@@ -38,8 +38,10 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
   // var currentEnemy = models.enemies[_.random(0, 2)];
   // var currentHero = models.heroes[1];
   // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
+
+
   var enemyToFight = models.enemies[(_.random(0, 2))];
-  console.log(enemyToFight);
+    console.log(enemyToFight);
 
   $('.ready-play-btn').on('click', function(event, data){
     event.preventDefault();
@@ -53,7 +55,7 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
     // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
     // console.log(enemyToFight);
 
-    var currentHero = models.heroes[1];
+    var currentHero = models.heroes[0];
 
 /// we hard coded data right here to begin with, just to have a frame of reference
     $('.enemy').append(charSelect(enemyToFight));
@@ -79,7 +81,9 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
     event.preventDefault();
 
 
-    models.heroes[1].heroAttack();
+    models.heroes[0].heroAttack();
+    // enemyToFight.enemyHealth -= models.hit;
+
 
     // console.log(models.heroes[1].heroAttack());
 
@@ -89,6 +93,6 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
   })
 
   module.exports = {
-    "enemyToFight": enemyToFight
+    "enemyToFight": enemyToFight,
 
   };

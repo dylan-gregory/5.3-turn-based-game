@@ -29,11 +29,11 @@ function Character(config){
 
 
 // Good guys constructor
-var enemyHealth;
-var heroHealth;
 var hit;
 var enemyToFight = index.enemyToFight;
-var enemyHealth = index.enemyHealth;
+var enemyHealth = 100;
+var heroHealth = 100;
+console.log(enemyHealth);
 
 function Hero(config){
   config = config || {};
@@ -41,12 +41,24 @@ function Hero(config){
   // this.move = config.move;
   this.heroHealth = 100;
 
+
+
     Character.call(this, config);
 
     this.heroAttack = function(){
-      hit = _.random(10, 30);
-      console.log(enemyToFight.enemyHealth);
-      return enemyHealth -= hit;
+      var hit = _.random(10, 30);
+      console.log(hit);
+      enemyHealth = enemyHealth - hit;
+      console.log(enemyHealth);
+      if (enemyHealth <= 0) {
+        alert('you win!');
+      }else {
+        return enemyHealth;
+      }
+
+
+
+
 
     };
 
@@ -127,7 +139,10 @@ var enemies = [doFlamingo, smoker, akainu];
 
 module.exports = {
   "heroes": heroes,
-  "enemies": enemies
+  "enemies": enemies,
+  "hit": hit,
+  "heroHealth": heroHealth,
+  "enemyHealth": enemyHealth
 };
 //
 // console.log(enemies[0].name);
