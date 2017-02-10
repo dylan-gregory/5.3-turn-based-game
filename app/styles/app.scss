@@ -19,9 +19,11 @@ img {
 #wrapper{
   background-image: url('http://orig14.deviantart.net/9f8c/f/2013/088/d/5/background_one_piece_by_xxhxaxx-d5zp2xa.png');
   background-size: cover;
+  height: 700px;
+  position: relative;
 }
 
-h1{
+.game-title{
   text-align: center;
 }
 
@@ -46,4 +48,13 @@ h1{
 .modal-body{
   height: 300px;
   font-size: 20px;
+}
+
+.play-button{
+  background: linear-gradient(#f00, #900);
+  border: 1px solid #900;
+  font-size: 30px;
+  position: absolute;
+  left: 37%;
+  top: 60%;
 }
