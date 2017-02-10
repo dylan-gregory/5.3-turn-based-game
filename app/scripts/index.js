@@ -44,10 +44,11 @@ var charSelect = require('../templates/characters.hbs')
 
     $('.fight-button').on('click', function(event, data){
       event.preventDefault();
+      
 
-      models.heroes.heroAttack();
+      models.heroes[1].heroAttack();
 
-      setTimeout(models.enemies.enemyAttack, 5000);
+      setTimeout(models.data.enemyAttack, 5000);
 
     })
 
