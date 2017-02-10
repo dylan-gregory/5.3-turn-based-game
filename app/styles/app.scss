@@ -40,12 +40,23 @@ img {
   z-index: -10;
 }
 
-#bar{
+#enemy-health{
+  display: inline-block;
   text-align: center;
   width: 100%;
   height: 8px;
   background-color: green;
+  margin-bottom: 8px;
 
+}
+
+#hero-health{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 8px;
+  background-color: green;
+  margin-bottom: 8px;
 }
 
 .char-name{

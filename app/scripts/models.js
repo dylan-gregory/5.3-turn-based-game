@@ -34,12 +34,15 @@ var enemyToFight = index.enemyToFight;
 var enemyHealth = 100;
 var heroHealth = 100;
 console.log(enemyHealth);
+// var enemyHealthBar = $('#enemy-health').style.width;
+
+
 
 function Hero(config){
   config = config || {};
   // this.name = config.name;
   // this.move = config.move;
-  this.heroHealth = 100;
+  // this.heroHealth = 100;
 
 
 
@@ -49,16 +52,14 @@ function Hero(config){
       var hit = _.random(10, 30);
       console.log(hit);
       enemyHealth = enemyHealth - hit;
+      $('#enemy-health').css("width", enemyHealth + "%");
       console.log(enemyHealth);
       if (enemyHealth <= 0) {
-        alert('you win!');
+        return alert('you win!');
+
       }else {
         return enemyHealth;
       }
-
-
-
-
 
     };
 
@@ -71,22 +72,21 @@ Hero.prototype = new Character();
 //Bad Guys constructor
 function Enemy(config){
   config = config || {};
-  this.enemyHealth = 100;
+  // this.enemyHealth = 100;
 
   Character.call(this, config);
-  // this.name = config.name;
-  // this.move = config.move;
+
 
   this.enemyAttack = function(){
     var hit = _.random(10, 30);
     console.log(hit);
     heroHealth = heroHealth - hit;
+    $('#hero-health').css("width", heroHealth + "%");
     console.log(heroHealth);
     if (heroHealth <= 0) {
       alert('you lose!');
     }else {
       return heroHealth;
-
     }
   };
 }
@@ -145,15 +145,14 @@ var enemies = [doFlamingo, smoker, akainu];
 
 
 
+
 module.exports = {
   "heroes": heroes,
   "enemies": enemies,
-  "hit": hit,
   "heroHealth": heroHealth,
   "enemyHealth": enemyHealth
 };
-//
-// console.log(enemies[0].name);
+
 
 
 // It would be neat to display this.name + " attacked with" + this.move

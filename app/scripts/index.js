@@ -20,10 +20,18 @@ var currentHero;
   //   picture = data.picture
   // });
 
+
   models.heroes.forEach(function(hero, index){
     hero.index = index;
     $('#char-modal').append(charTNSelect(hero));
     console.log($('.js-hero'));
+
+// var life = models.enemyHealth;
+// console.log(life);
+//
+//   models.heroes.forEach(function(hero){
+//   $('#char-modal').append(charTNSelect(hero));
+
   });
 
 // add function to select hero
@@ -50,7 +58,9 @@ console.log(currentHero);
 
 
   var enemyToFight = models.enemies[(_.random(0, 2))];
-    console.log(enemyToFight);
+  var life = models.enemyHealth;
+  console.log(life);
+
 
   $('.ready-play-btn').on('click', function(event, data){
     event.preventDefault();
@@ -76,31 +86,25 @@ console.log(currentHero);
     $('.hero').append(charSelect(currentHero));
 
 
-    // $('.fight-button').on('click', function(event, data){
-    //   event.preventDefault();
-    //
-    //
-    //   models.heroes[1].heroAttack();
-    //
-    //   setTimeout(enemyToFight.enemyAttack, 5000);
-    //
-    //
-    // })
-
   });
-  console.log(enemyToFight.enemyHealth);
+
 
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
+
 
 
     currentHero.heroAttack();
     // enemyToFight.enemyHealth -= models.hit;
 
 
-    // console.log(models.heroes[1].heroAttack());
+    if ($('#enemy-health').css("width", 0)) {
 
-    setTimeout(enemyToFight.enemyAttack, 3000);
+      setTimeout(enemyToFight.enemyAttack, 3000);
+    }else{
+      return alert("you win!");
+    }
+
 
 
   })
