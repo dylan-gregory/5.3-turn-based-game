@@ -50,7 +50,11 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
     $('.health-bar-hero').removeClass('display-hide');
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
-    $('.modal').addClass('close');
+    $('.modal').modal('hide')
+    // $('.modal').addClass('close');
+    // $('.modal').css('display', 'none');
+    // $('body').removeClass('modal-open');
+    // $('modal-backdrop.in').css('opacity', 0);
 
     // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
     // console.log(enemyToFight);
