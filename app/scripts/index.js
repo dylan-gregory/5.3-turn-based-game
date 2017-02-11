@@ -3,23 +3,35 @@ var _ = require('underscore');
 var models = require('./models.js');
 require('bootstrap-sass');
 
+var openScreen = require('../templates/splash-screen.hbs');
+var playGame = require('../templates/game-screen.hbs');
+var modal = require('../templates/modal.hbs');
 var charSelect = require('../templates/characters.hbs');
-var charTNSelect = require('../templates/char-thumbnail.hbs')
+var charTNSelect = require('../templates/char-thumbnail.hbs');
+var youWin = require('../templates/winning-screen.hbs');
+var youLose = require('../templates/losing-screen.hbs');
 
+var $audio = $('#audio');
 var currentHero;
 
+// $('.game').html(openScreen());
 
   models.heroes.forEach(function(hero, index){
     hero.index = index;
     $('#char-modal').append(charTNSelect(hero));
-    console.log($('.js-hero'));
+    // console.log($('.js-hero'));
 
 
 
   });
 
+// add function to launch modal
+// $('.play-button').on('click', function(e){
+//   $('.game').html(modal());
+// })
+
 // add function to select hero
-  console.log($('.js-hero'));
+  // console.log($('.js-hero'));
   $('.js-hero').on('click', function(e){
     var heroIndex = $(this).data("hero");
     currentHero = models.heroes[heroIndex];
@@ -40,12 +52,17 @@ var currentHero;
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
     $('.character-modal').modal('hide');
+    // $('.modal-backdrop.in').css('opacity', 0);
+    // $('.game').html(playGame());
+
 
 
     $('.enemy').append(charSelect(enemyToFight));
     $('.hero').append(charSelect(currentHero));
 
-
+// attempting to add audio clip to start game
+//     $audio.attr('src', '../images/SFX_Powerup_50.mp3');
+//     $audio[0].play();
   });
 
 var enemyHit;
@@ -60,7 +77,8 @@ var enemyHit;
 
   console.log(models.enemyHealth);
     if (life < 0){
-      alert("you win!");
+      // alert("you win!");
+      $('.game').html(youWin());
       return;
     }
 

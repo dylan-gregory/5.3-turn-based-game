@@ -94,8 +94,8 @@ Enemy.prototype = new Character();
   var robin = new Hero({
     name: "Robin",
     move: "Seis Fleur: Twist",
-    image: "../app/images/robin.jpg",
-    thumbnail: "../app/images/robin-tn.jpg"
+    image: "../app/images/robin.png",
+    thumbnail: "../app/images/robin-tn.png"
   });
 
   var zoro = new Hero({
@@ -115,10 +115,10 @@ Enemy.prototype = new Character();
   });
 
   var smoker = new Enemy({
-    name: "Smoker",
-    move: "Smoke Bomb",
-    image: "../app/images/smoker.jpg",
-    thumbnail: "../app/images/smoker-tn.jpg"
+    name: "Arlong",
+    move: "Shark Tooth Drill",
+    image: "../app/images/arlong.png",
+    thumbnail: "../app/images/arlong-tn.png"
   });
 
   var akainu = new Enemy({
