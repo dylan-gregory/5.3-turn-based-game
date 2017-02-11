@@ -52,16 +52,28 @@ var enemyHit;
 
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
-    
+
 
 
     currentHero.heroAttack();
+
 
   console.log(models.enemyHealth);
     if (life < 0){
       alert("you win!");
       return;
     }
+
+    // enemyToFight.enemyHealth -= models.hit;
+
+
+    // // if ($('#enemy-health').css("width", 0)) {
+    //
+    //   setTimeout(enemyToFight.enemyAttack, 3000);
+    // }else{
+    //   return alert("you win!");
+    // }
+
 
   enemyHit = setTimeout(enemyToFight.enemyAttack, 3000);
 
