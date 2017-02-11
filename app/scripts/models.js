@@ -40,13 +40,12 @@ function Hero(config){
       console.log(hit);
       enemyHealth = enemyHealth - hit;
       $('#enemy-health').css("width", enemyHealth + "%");
-      console.log(enemyHealth);
+  
       if (enemyHealth <= 0) {
         // alert('you win!');
         $('#winning-modal').modal('show');
-        console.log($('#winning-modal'));
         //not totally sure why this only works because it throws an error...but it works
-        clearTimeout(enemyHit);
+        // clearTimeout(index.enemyHit);
 
       }else {
         return enemyHealth;

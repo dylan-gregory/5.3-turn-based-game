@@ -55,8 +55,6 @@ var currentHero;
     // $('.modal-backdrop.in').css('opacity', 0);
     // $('.game').html(playGame());
 
-
-
     $('.enemy').append(charSelect(enemyToFight));
     $('.hero').append(charSelect(currentHero));
 
@@ -70,33 +68,26 @@ var enemyHit;
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
 
-
-
     currentHero.heroAttack();
-
-
-  console.log(models.enemyHealth);
-    if (life < 0){
-      // alert("you win!");
-      $('.game').html(youWin());
+    if (($("#winning-modal").data('bs.modal') || {}).isShown){
+      clearTimeout(enemyHit);
       return;
     }
 
-    // enemyToFight.enemyHealth -= models.hit;
-
-
-    // // if ($('#enemy-health').css("width", 0)) {
-    //
-    //   setTimeout(enemyToFight.enemyAttack, 3000);
-    // }else{
-    //   return alert("you win!");
-    // }
-
-
   enemyHit = setTimeout(enemyToFight.enemyAttack, 3000);
 
-
   })
+
+
+  $('.try-again-btn').on('click', function(event){
+    event.preventDefault();
+    window.location.reload(true);
+    // $('#winning-modal').modal('hide');
+    // $('#losing-modal').modal('hide');
+    // setTimeout(retry, 2000);
+
+
+  });
 
   module.exports = {
     "enemyToFight": enemyToFight,
