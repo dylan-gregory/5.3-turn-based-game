@@ -12,39 +12,24 @@ function Character(config){
 
     this.name = config.name;
     this.move = config.move;
-// they will all have 100 health points by default
-    // this.health = 100;
-
 
   $.extend(this, config);
 
   this.attack = function(){
     var hit = _.random(10, 30);
 
-    // return !this.health -= hit; // might have to change Character to something else - enemy health maybe?
-
   };
 
   }
 
-
-// Good guys constructor
-var hit;
 var enemyToFight = index.enemyToFight;
 var enemyHealth = 100;
 var heroHealth = 100;
-console.log(enemyHealth);
-// var enemyHealthBar = $('#enemy-health').style.width;
 
 
-
+// Good guys constructor
 function Hero(config){
   config = config || {};
-  // this.name = config.name;
-  // this.move = config.move;
-  // this.heroHealth = 100;
-
-
 
     Character.call(this, config);
 
@@ -55,7 +40,9 @@ function Hero(config){
       $('#enemy-health').css("width", enemyHealth + "%");
       console.log(enemyHealth);
       if (enemyHealth <= 0) {
-        return alert('you win!');
+        alert('you win!');
+        //not totally sure why this only works because it throws an error...but it works 
+        clearTimeout(enemyHit);
 
       }else {
         return enemyHealth;
@@ -72,10 +59,7 @@ Hero.prototype = new Character();
 //Bad Guys constructor
 function Enemy(config){
   config = config || {};
-  // this.enemyHealth = 100;
-
   Character.call(this, config);
-
 
   this.enemyAttack = function(){
     var hit = _.random(10, 30);
@@ -139,9 +123,9 @@ Enemy.prototype = new Character();
     thumbnail: "../app/images/akainu-tn.png"
   });
 
-var heroes = [luffy, robin, zoro];
+  var heroes = [luffy, robin, zoro];
 
-var enemies = [doFlamingo, smoker, akainu];
+  var enemies = [doFlamingo, smoker, akainu];
 
 
 

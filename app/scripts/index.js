@@ -9,57 +9,27 @@ var charTNSelect = require('../templates/char-thumbnail.hbs')
 var currentHero;
 
 
-  // This will reference the character that you choose - it will load up that characters data into the event that will fire when you click the play button
-  // $(whatever we want to call this thing).on('click', function(event, data){
-  //   event.preventDefault();
-  //
-  //  ***** Or we can just grab that character object -> heroes[0], etc
-  //
-  //   name = data.name
-  //   move = data.move
-  //   picture = data.picture
-  // });
-
-
   models.heroes.forEach(function(hero, index){
     hero.index = index;
     $('#char-modal').append(charTNSelect(hero));
     console.log($('.js-hero'));
 
-// var life = models.enemyHealth;
-// console.log(life);
-//
-//   models.heroes.forEach(function(hero){
-//   $('#char-modal').append(charTNSelect(hero));
+
 
   });
 
 // add function to select hero
-console.log($('.js-hero'));
-$('.js-hero').on('click', function(e){
-  var heroIndex = $(this).data("hero");
-  currentHero = models.heroes[heroIndex];
-console.log(currentHero);
-})
-  // $('#char-modal').append.(charSelect(models.heroes));
-  // console.log($('#char-modal').append(charSelect(models.heroes)))
-
-  // $('.play-button').on('click', function(){
-  //   event.preventDefault();
-  //
-  //   $('.play-button').addClass('display-hide');
-  //   $('.game-title').addClass('display-hide');
-  //
-  // };
-
-  // var currentEnemy = models.enemies[_.random(0, 2)];
-  // var currentHero = models.heroes[1];
-  // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
+  console.log($('.js-hero'));
+  $('.js-hero').on('click', function(e){
+    var heroIndex = $(this).data("hero");
+    currentHero = models.heroes[heroIndex];
+  console.log(currentHero);
+  })
 
 
   var enemyToFight = models.enemies[(_.random(0, 2))];
   var life = models.enemyHealth;
-  console.log(life);
+  console.log(models.enemyHealth);
 
 
   $('.ready-play-btn').on('click', function(event, data){
@@ -70,24 +40,15 @@ console.log(currentHero);
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
     $('.modal').modal('hide');
-    // $('.modal').addClass('close');
-    // $('.modal').css('display', 'none');
-    // $('body').removeClass('modal-open');
-    // $('modal-backdrop.in').css('opacity', 0);
-
-    // var enemyToFight = models.enemies.indexOf(_.random(0, 2));
-    // console.log(enemyToFight);
 
 
-
-/// we hard coded data right here to begin with, just to have a frame of reference
     $('.enemy').append(charSelect(enemyToFight));
-    // or whatever we want to call the hero spot
     $('.hero').append(charSelect(currentHero));
 
 
   });
 
+var enemyHit;
 
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
@@ -95,21 +56,20 @@ console.log(currentHero);
 
 
     currentHero.heroAttack();
-    // enemyToFight.enemyHealth -= models.hit;
 
-
-    if ($('#enemy-health').css("width", 0)) {
-
-      setTimeout(enemyToFight.enemyAttack, 3000);
-    }else{
-      return alert("you win!");
+  console.log(models.enemyHealth);
+    if (life < 0){
+      alert("you win!");
+      return;
     }
 
+  enemyHit = setTimeout(enemyToFight.enemyAttack, 3000);
 
 
   })
 
   module.exports = {
     "enemyToFight": enemyToFight,
+    "enemyHit": enemyHit
 
   };
