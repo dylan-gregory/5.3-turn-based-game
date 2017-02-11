@@ -39,7 +39,7 @@ var currentHero;
     $('.health-bar-hero').removeClass('display-hide');
     $('.game-title').addClass('display-hide');
     $('.play-button').addClass('display-hide');
-    $('.modal').modal('hide');
+    $('.character-modal').modal('hide');
 
 
     $('.enemy').append(charSelect(enemyToFight));
@@ -52,7 +52,7 @@ var enemyHit;
 
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
-
+    
 
 
     currentHero.heroAttack();

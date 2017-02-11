@@ -4,6 +4,8 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var index = require('./index.js')
+require('../templates/winning-screen.hbs');
+require('../templates/losing-screen.hbs');
 
 
 // Setting up a basic character constructor
@@ -25,7 +27,7 @@ function Character(config){
 var enemyToFight = index.enemyToFight;
 var enemyHealth = 100;
 var heroHealth = 100;
-
+        console.log($('#winning-modal'));
 
 // Good guys constructor
 function Hero(config){
@@ -40,8 +42,10 @@ function Hero(config){
       $('#enemy-health').css("width", enemyHealth + "%");
       console.log(enemyHealth);
       if (enemyHealth <= 0) {
-        alert('you win!');
-        //not totally sure why this only works because it throws an error...but it works 
+        // alert('you win!');
+        $('#winning-modal').modal('show');
+        console.log($('#winning-modal'));
+        //not totally sure why this only works because it throws an error...but it works
         clearTimeout(enemyHit);
 
       }else {
@@ -68,7 +72,8 @@ function Enemy(config){
     $('#hero-health').css("width", heroHealth + "%");
     console.log(heroHealth);
     if (heroHealth <= 0) {
-      alert('you lose!');
+      // alert('you lose!');
+      $('#losing-modal').modal('show');
     }else {
       return heroHealth;
     }
