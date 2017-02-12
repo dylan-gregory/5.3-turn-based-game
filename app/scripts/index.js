@@ -10,6 +10,7 @@ var charSelect = require('../templates/characters.hbs');
 var charTNSelect = require('../templates/char-thumbnail.hbs');
 var youWin = require('../templates/winning-screen.hbs');
 var youLose = require('../templates/losing-screen.hbs');
+var fightString = require('../templates/attack.hbs');
 
 var $audio = $('.audio');
 var currentHero;
@@ -65,6 +66,7 @@ var currentHero;
 
 var enemyHit;
 
+
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
     
@@ -106,7 +108,10 @@ var enemyHit;
       return;
     }
 
-  enemyHit = setTimeout(enemyToFight.enemyAttack, 3000);
+  enemyHit = setTimeout(enemyToFight.enemyAttack, 1000);
+
+  $('#fight').append(fightString(currentHero));
+  $('#fight').append(fightString(enemyToFight));
 
   })
 

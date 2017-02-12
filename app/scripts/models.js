@@ -40,7 +40,7 @@ function Hero(config){
       console.log(hit);
       enemyHealth = enemyHealth - hit;
       $('#enemy-health').css("width", enemyHealth + "%");
-  
+
       if (enemyHealth <= 0) {
         // alert('you win!');
         $('#winning-modal').modal('show');
