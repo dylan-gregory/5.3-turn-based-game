@@ -69,7 +69,7 @@ var enemyHit;
 
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
-    
+
     $audio.attr('src', 'images/punch-sound.mp3');
     $audio[0].play();
 
@@ -111,7 +111,8 @@ var enemyHit;
   enemyHit = setTimeout(enemyToFight.enemyAttack, 1000);
 
   $('#fight').append(fightString(currentHero));
-  $('#fight').append(fightString(enemyToFight));
+  setTimeout($('#fight').append(fightString(enemyToFight)), 1000);
+
 
   })
 

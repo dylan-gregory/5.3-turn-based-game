@@ -72,7 +72,8 @@ img {
 
 .modal-title{
   color: red;
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -153,9 +154,8 @@ background: linear-gradient(#B10000, #6C0000);
   text-align: center;
 }
 #losing-modal .modal-body{
-  font-size: 30px;
-  color: white;
-  text-align: center;
+  background-image: url('../images/one-piece-lose.jpg');
+  background-size: cover;
 }
 
 #winning-modal .modal-content{
@@ -168,10 +168,19 @@ background: linear-gradient(#B10000, #6C0000);
   text-align: center;
 }
 #winning-modal .modal-body{
+  background-image: url('../images/one-piece-celebrate.jpg');
+}
+
+.modal-footer{
   font-size: 30px;
   color: white;
   text-align: center;
-  padding-top: 20px;
+  display: inline-block;
+}
+.modal-footer p{
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
 }
 
 .try-again-btn{
