@@ -1,11 +1,14 @@
 <div class="col-md-4">
-  <div data-hero="{{ index }}" class="js-hero">
-    <div class="char-image">
-      <img src="{{ thumbnail }}" alt="">
-    </div>
+  <input type="radio" name="hero" id="{{ index }}" value="{{ index }}" checked="checked"/>
+  <label for="{{ index }}">
+    <div data-hero="{{ index }}" class="js-hero">
+      <div class="char-image">
+        <img src="{{ thumbnail }}" alt="">
+      </div>
 
-    <div class="char-name">
-      <span>{{ name }}</span>
+      <div class="char-name">
+        <span>{{ name }}</span>
+      </div>
     </div>
-  </div>
+  </label>
 </div>
