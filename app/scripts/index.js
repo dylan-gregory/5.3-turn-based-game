@@ -11,7 +11,7 @@ var charTNSelect = require('../templates/char-thumbnail.hbs');
 var youWin = require('../templates/winning-screen.hbs');
 var youLose = require('../templates/losing-screen.hbs');
 
-var $audio = $('#audio');
+var $audio = $('.audio');
 var currentHero;
 
 // $('.game').html(openScreen());
@@ -67,6 +67,38 @@ var enemyHit;
 
   $('.fight-button').on('click', function(event, data){
     event.preventDefault();
+    
+    $audio.attr('src', 'images/punch-sound.mp3');
+    $audio[0].play();
+
+    $('.enemy').animate({  borderSpacing: 90 }, {
+      step: function(now,fx) {
+        $(this).css('transform','rotate('+now+'deg)');
+      },
+      duration:'slow'
+    },'linear');
+
+    setTimeout($('.enemy').animate({  borderSpacing: 0 }, {
+      step: function(now,fx) {
+        $(this).css('transform','rotate('+now+'deg)');
+      },
+      duration:'slow'
+    },'linear'), 2000);
+
+
+    // setTimeout($('.hero').animate({  borderSpacing: -90 }, {
+    //   step: function(now,fx) {
+    //     $(this).css('transform','rotate('+now+'deg)');
+    //   },
+    //   duration:'slow'
+    // },'linear'), 6000);
+    //
+    // setTimeout($('.hero').animate({  borderSpacing: 0 }, {
+    //   step: function(now,fx) {
+    //     $(this).css('transform','rotate('+now+'deg)');
+    //   },
+    //   duration:'slow'
+    // },'linear'), 8000);
 
     currentHero.heroAttack();
     if (($("#winning-modal").data('bs.modal') || {}).isShown){
