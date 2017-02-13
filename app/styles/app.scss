@@ -60,6 +60,7 @@ img {
 }
 
 .char-name{
+  margin-left: 20px;
   font-size: 30px;
   color: white;
   font-weight: bold;
@@ -120,6 +121,7 @@ input[type="radio"]:checked + label {
 .char-image{
   display: inline-block;
 }
+
 
 .hero{
 
@@ -188,4 +190,9 @@ background: linear-gradient(#B10000, #6C0000);
   color: white;
   text-align: center;
   font-size: 20px;
+}
+
+.js-hero{
+  text-align: center;
+
 }

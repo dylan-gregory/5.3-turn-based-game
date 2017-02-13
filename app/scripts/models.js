@@ -6,6 +6,7 @@ var _ = require('underscore');
 var index = require('./index.js')
 require('../templates/winning-screen.hbs');
 require('../templates/losing-screen.hbs');
+var $audio = $('.audio');
 
 
 // Setting up a basic character constructor
@@ -44,6 +45,8 @@ function Hero(config){
       if (enemyHealth <= 0) {
         // alert('you win!');
         $('#winning-modal').modal('show');
+        $audio.attr('src', 'images/winning-clap.mp3');
+        $audio[0].play();
         //not totally sure why this only works because it throws an error...but it works
         // clearTimeout(index.enemyHit);
 
@@ -73,6 +76,8 @@ function Enemy(config){
     if (heroHealth <= 0) {
       // alert('you lose!');
       $('#losing-modal').modal('show');
+      $audio.attr('src', 'images/crowd-boo.mp3');
+      $audio[0].play();
     }else {
       return heroHealth;
     }
