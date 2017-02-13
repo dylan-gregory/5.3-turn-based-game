@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>5.3 turn based game</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div id="wrapper" class="container-fluid">
+
+    <div class="game">
+
+    </div>
+<!-- Button to fire modal, which will let you select your character -->
+        <button type="button" class="btn btn-primary btn-lg play-button" data-toggle="modal" data-target="#myModal">
+        Ready to play? Click here!
+      </button>
+
+      <!-- Modal to select your character-->
+      <div class="modal fade character-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Select your character!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div id="char-modal" class="row">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                      <button type="button" class="btn btn-primary ready-play-btn">I'm ready - let's go!</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+<!-- Winning modal -->
+      <div id="winning-modal" class="modal winning-modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">YOU WIN!</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <p>To the victor go the spoils</p>
+              <button type="button" class="btn btn-primary try-again-btn">Try again?</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+<!-- Losing modal -->
+      <div id="losing-modal" class="modal losing-modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">YOU LOSE!</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+              <p>Your skills were not enough</p>
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <button type="button" class="btn btn-primary try-again-btn">Try again?</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      <audio class="audio"
+       src=""></audio>
+
+      <div class="row">
+        <div class="game-title">
+          <img src="../app/images/one-piece_logo.jpg" alt="">
+        </div>
+      </div>
+
+      <div id="char-row" class="row">
+        <div class="col-md-5 col-xs-6">
+
+
+          <div class="hero">
+            <div class="health-bar-hero display-hide">
+              <span id="hero-health"></span>
+            </div>
+            <!-- hero template -->
+          </div>
+
+        </div>
+
+        <div class="col-md-2 col-xs-hidden" id="fight">
+          <!-- middle space -->
+        </div>
+
+        <div class="col-md-5 col-xs-6">
+
+          <div class="enemy">
+            <div class="health-bar-enemy display-hide">
+              <span id="enemy-health"></span>
+            </div>
+            <!-- enemy-template -->
+          </div>
+
+        </div>
+
+
+        <button type="button" class="btn fight-button btn-danger display-hide">Fight!</button>
+
+
+      </div>
+
+      <div class="footer">
+
+      </div>
+
+    </div>
+
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
