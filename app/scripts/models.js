@@ -91,22 +91,22 @@ Enemy.prototype = new Character();
   var luffy = new Hero({
     name: "Luffy",
     move: "Rubber Rubber Bazooka",
-    image: "../app/images/luffy.png",
-    thumbnail: "../app/images/luffy-tn.png"
+    image: "app/images/luffy.png",
+    thumbnail: "app/images/luffy-tn.png"
   });
 
   var robin = new Hero({
     name: "Robin",
     move: "Seis Fleur: Twist",
-    image: "../app/images/robin.png",
-    thumbnail: "../app/images/robin-tn.png"
+    image: "app/images/robin.png",
+    thumbnail: "app/images/robin-tn.png"
   });
 
   var zoro = new Hero({
     name: "Zoro",
     move: "Oni Cutter",
-    image: "../app/images/zoro.png",
-    thumbnail: "../app/images/zoro-tn.png"
+    image: "app/images/zoro.png",
+    thumbnail: "app/images/zoro-tn.png"
   });
 
 
@@ -114,22 +114,22 @@ Enemy.prototype = new Character();
   var doFlamingo = new Enemy({
     name: "Doflamingo",
     move: "Roundhouse Kick",
-    image: "../app/images/doflamingo.png",
-    thumbnail: "../app/images/doflamingo-tn.png"
+    image: "app/images/doflamingo.png",
+    thumbnail: "app/images/doflamingo-tn.png"
   });
 
   var smoker = new Enemy({
     name: "Arlong",
     move: "Shark Tooth Drill",
-    image: "../app/images/arlong.png",
-    thumbnail: "../app/images/arlong-tn.png"
+    image: "app/images/arlong.png",
+    thumbnail: "app/images/arlong-tn.png"
   });
 
   var akainu = new Enemy({
     name: "Admiral Akainu",
     move: "Volcano Meteor",
-    image: "../app/images/akainu.png",
-    thumbnail: "../app/images/akainu-tn.png"
+    image: "app/images/akainu.png",
+    thumbnail: "app/images/akainu-tn.png"
   });
 
   var heroes = [luffy, robin, zoro];
