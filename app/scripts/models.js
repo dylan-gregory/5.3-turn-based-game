@@ -76,6 +76,8 @@ function Hero(config){
 
     Character.call(this, config);
 
+    this.type = 'heroChar';
+
     this.heroAttack = function(){
       var hit = _.random(10, 30);
       console.log(hit);
@@ -106,6 +108,8 @@ Hero.prototype = new Character();
 function Enemy(config){
   config = config || {};
   Character.call(this, config);
+
+  this.type = 'enemyChar';
 
   this.enemyAttack = function(){
     var hit = _.random(10, 30);

@@ -22,8 +22,6 @@ var currentHero;
     $('#char-modal').append(charTNSelect(hero));
     // console.log($('.js-hero'));
 
-
-
   });
 
 // add function to launch modal
@@ -73,29 +71,29 @@ var enemyHit;
     $audio.attr('src', 'images/punch-sound.mp3');
     $audio[0].play();
 
-    $('.enemy').animate({  borderSpacing: 90 }, {
+    $('.enemyChar').animate({  borderSpacing: 90 }, {
       step: function(now,fx) {
         $(this).css('transform','rotate('+now+'deg)');
       },
       duration:'slow'
     },'linear');
 
-    setTimeout($('.enemy').animate({  borderSpacing: 0 }, {
+    setTimeout($('.enemyChar').animate({  borderSpacing: 0 }, {
       step: function(now,fx) {
         $(this).css('transform','rotate('+now+'deg)');
       },
       duration:'slow'
     },'linear'), 2000);
 
-
-    // setTimeout($('.hero').animate({  borderSpacing: -90 }, {
+    // 
+    // setTimeout($('.heroChar').animate({  borderSpacing: -90 }, {
     //   step: function(now,fx) {
     //     $(this).css('transform','rotate('+now+'deg)');
     //   },
     //   duration:'slow'
     // },'linear'), 6000);
     //
-    // setTimeout($('.hero').animate({  borderSpacing: 0 }, {
+    // setTimeout($('.heroChar').animate({  borderSpacing: 0 }, {
     //   step: function(now,fx) {
     //     $(this).css('transform','rotate('+now+'deg)');
     //   },
