@@ -9,6 +9,46 @@ require('../templates/losing-screen.hbs');
 var $audio = $('.audio');
 
 
+// Dan's method:
+//###############################################################//
+// function Character(config){
+//   config = config || {};
+//   var defaults = {
+//     damage: 10,
+//     health: 100
+//   };
+//
+//   $.extend(this, defaults, config);
+// }
+//
+// Character.prototype.attack = function(character){
+//   character.health -= this.damage;
+// }
+//
+// function Hero(config){
+//   //this lets you call the SUPER code for the object you pass here
+//   Character.call(this, config);
+//
+// }
+//
+// function Enemy(config){
+//   Character.call(this, config);
+//
+// }
+//
+// // this is primarily for inheritance of methods
+// Hero.prototype = new Character();
+//
+// Enemy.prototype = new Character();
+//
+// Hero.prototype.attack = function(character){
+//   Character.prototype.attack.call(this, character);
+//
+// }
+
+//#################################################################//
+
+
 // Setting up a basic character constructor
 function Character(config){
     config = config || {};
@@ -47,7 +87,7 @@ function Hero(config){
         $('#winning-modal').modal('show');
         $audio.attr('src', 'images/winning-clap.mp3');
         $audio[0].play();
-        //not totally sure why this only works because it throws an error...but it works
+        //not totally sure why this only works because it throws an error
         // clearTimeout(index.enemyHit);
 
       }else {
