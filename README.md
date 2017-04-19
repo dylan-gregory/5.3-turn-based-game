@@ -12,3 +12,4 @@ One of the most fun things I did in my time at The Iron Yard. The main goal of t
 ## Authors
 
 * **Dylan Gregory** - (https://github.com/dylan-gregory) (https://dylangregory.io)
+* **Andrea Baty** - (https://github.com/anniemiko)
